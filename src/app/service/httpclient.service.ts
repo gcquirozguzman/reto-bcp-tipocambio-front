@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
-//const rutaBase = "http://localhost:8080";
+//const rutaBase = "http://localhost:8080"; 
 const rutaBase = "https://reto-bcp-tipocambio-back.herokuapp.com";
 
 export class TipoMoneda {
