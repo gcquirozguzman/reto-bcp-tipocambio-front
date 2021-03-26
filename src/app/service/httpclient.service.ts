@@ -1,6 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
+//const rutaBase = "http://localhost:8080";
+const rutaBase = "https://reto-bcp-tipocambio-back.herokuapp.com";
+
 export class TipoMoneda {
   constructor(
     public id: string,
@@ -28,33 +31,33 @@ export class HttpClientService {
   constructor(private httpClient: HttpClient) {}
 
   listarTodos() {
-    return this.httpClient.get<TipoMoneda[]>("http://localhost:8080/ProyectoTipoCambio/tipoMoneda/listarTodos");
+    return this.httpClient.get<TipoMoneda[]>(rutaBase + "/ProyectoTipoCambio/tipoMoneda/listarTodos");
   }
 
   public eliminarTipoMoneda(tipoMoneda) {
     return this.httpClient.delete<TipoMoneda>(
-      "http://localhost:8080/ProyectoTipoCambio/tipoMoneda/eliminar" + "/" + tipoMoneda.id
+      rutaBase + "/ProyectoTipoCambio/tipoMoneda/eliminar" + "/" + tipoMoneda.id
     );
   }
   public crearTipoMoneda(tipoMoneda) {
     return this.httpClient.post<TipoMoneda>(
-      "http://localhost:8080/ProyectoTipoCambio/tipoMoneda/crear",
+      rutaBase + "/ProyectoTipoCambio/tipoMoneda/crear",
         tipoMoneda
     );
   }
 
   listarTodosTablaConversion() {
-    return this.httpClient.get<TablaConversion[]>("http://localhost:8080/ProyectoTipoCambio/tablaConversion/listarTodosDescripcion");
+    return this.httpClient.get<TablaConversion[]>(rutaBase + "/ProyectoTipoCambio/tablaConversion/listarTodosDescripcion");
   }
 
   public eliminarTablaConversion(tablaConversion) {
     return this.httpClient.delete<TablaConversion>(
-      "http://localhost:8080/ProyectoTipoCambio/tablaConversion/eliminar" + "/" + tablaConversion.id
+      rutaBase + "/ProyectoTipoCambio/tablaConversion/eliminar" + "/" + tablaConversion.id
     );
   }
   public crearTablaConversion(tablaConversion) {
     return this.httpClient.post<TablaConversion>(
-      "http://localhost:8080/ProyectoTipoCambio/tablaConversion/crear",
+      rutaBase + "/ProyectoTipoCambio/tablaConversion/crear",
       tablaConversion
     );
   }
