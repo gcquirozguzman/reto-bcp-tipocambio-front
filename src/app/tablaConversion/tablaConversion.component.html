@@ -1,0 +1,37 @@
+<table mat-table [dataSource]="tablaConversions" class="mat-elevation-z8">
+    <ng-container matColumnDef="codigoOrigen">
+        <th mat-header-cell *matHeaderCellDef> Origen </th>
+        <td mat-cell *matCellDef="let tablaConversion"> {{tablaConversion.codigoOrigen}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="codigoDestino">
+        <th mat-header-cell *matHeaderCellDef> Destino </th>
+        <td mat-cell *matCellDef="let tablaConversion"> {{tablaConversion.codigoDestino}} </td>
+    </ng-container>
+	
+	<ng-container matColumnDef="monto">
+        <th mat-header-cell *matHeaderCellDef> Monto </th>
+        <td mat-cell *matCellDef="let tablaConversion"> {{tablaConversion.monto}} </td>
+    </ng-container>
+	
+	<ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let tablaConversion"> {{tablaConversion.fecha}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell 
+        routerLink="/editarConversion"
+        *matCellDef="let tablaConversion"><button class="btn btn-danger" (click)="eliminarTablaOrigen(tablaConversion)">Editar</button> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let tablaConversion"><button class="btn btn-danger" (click)="eliminarTablaOrigen(tablaConversion)">Eliminar</button> </td>
+    </ng-container>
+    
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
